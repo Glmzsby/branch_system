@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>党员管理系统</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <!-- 看板页面 -->
+    <div class="page" id="board-page">
+        <div class="board-container">
+            <div id="board-content">
+                <h2>可参加的活动</h2>
+                <div class="activity-list">
+                    <!-- 活动列表将在这里显示 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 申请页面 -->
+    <div id="application-page" class="page">
+        <div class="application-container">
+            <!-- 左侧内容区 -->
+            <div class="content-section">
+                <div id="points-content" class="content-area active">
+                    <!-- 加分申请表单 -->
+                    <div id="points-form" class="points-form" style="display: none;">
+                        <h2>申请加分</h2>
+                        <form id="pointsForm">
+                            <div class="form-group">
+                                <label for="category">贡献分类</label>
+                                <select id="category" required>
+                                    <option value="">请选择分类</option>
+                                    <option value="teaching">教学科研成果及竞赛</option>
+                                    <option value="scholarship">学业奖</option>
+                                    <option value="honor">荣誉</option>
+                                    <option value="position">任职</option>
+                                    <option value="innovation">创新</option>
+                                    <option value="other">其他贡献</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subcategory">具体项目</label>
+                                <select id="subcategory" required>
+                                    <option value="">请先选择分类</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="summary">项目摘要</label>
+                                <textarea id="summary" required placeholder="请详细描述项目内容"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="date">时间</label>
+                                <input type="date" id="date" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>支撑材料</label>
+                                <div class="file-upload" id="fileUpload">
+                                    <p>点击或拖拽文件到此处上传</p>
+                                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                                </div>
+                                <img id="preview" class="preview-image" style="display: none;">
+                            </div>
+
+                            <button type="submit" class="submit-btn">提交申请</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="activity-content" class="content-area">
+                    <!-- 活动相关内容 -->
+                </div>
+            </div>
+            <!-- 右侧操作区 -->
+            <div class="action-section">
+                <div class="add-button" id="addButton">+</div>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <div class="dropdown-item" data-action="apply-activity">申请活动</div>
+                    <div class="dropdown-item" data-action="apply-points">申请加分</div>
+                    <div class="dropdown-item branch-only" data-action="review-activity">审核活动</div>
+                    <div class="dropdown-item branch-only" data-action="review-points">审核加分</div>
+                </div>
+                <div class="action-buttons">
+                    <button class="action-btn active" data-type="points">加分</button>
+                    <button class="action-btn" data-type="activity">活动</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 排行页面 -->
+    <div id="ranking-page" class="page">
+        <div class="page-container">
+            <div class="chat-section">
+                <div class="chat-messages" id="chatMessages">
+                    <!-- 已审核通过的加分项目将在这里显示 -->
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" id="chatInput" placeholder="输入消息..." />
+                    <button id="sendButton">发送</button>
+                </div>
+            </div>
+            <div class="ranking-section">
+                <div class="ranking-tabs">
+                    <div class="ranking-tab active" data-period="total">总榜</div>
+                    <div class="ranking-tab" data-period="month">月榜</div>
+                    <div class="ranking-tab" data-period="week">周榜</div>
+                </div>
+                <div class="ranking-list" id="rankingList">
+                    <!-- 排名将由JavaScript动态填充 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 我的页面 -->
+    <div id="profile-page" class="page">
+        <div class="profile-card">
+            <div class="profile-item">
+                <div class="profile-label">姓名</div>
+                <div class="profile-value" id="userName"></div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">职务</div>
+                <div class="profile-value" id="userRole"></div>
+            </div>
+            <div class="profile-item">
+                <div class="profile-label">积分</div>
+                <div class="profile-value" id="userPoints"></div>
+            </div>
+        </div>
+        <button class="logout-btn" id="logoutBtn">退出登录</button>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <nav class="nav-bar">
+        <a href="#" class="nav-item active" data-page="board-page">
+            <span>看板</span>
+        </a>
+        <a href="#" class="nav-item" data-page="application-page">
+            <span>申请</span>
+        </a>
+        <a href="#" class="nav-item" data-page="ranking-page">
+            <span>排行</span>
+        </a>
+        <a href="#" class="nav-item" data-page="profile-page">
+            <span>我的</span>
+        </a>
+    </nav>
+
+    <script src="static/js/config.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+</html>

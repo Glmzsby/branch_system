@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>党员管理系统</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h2>党员管理系统</h2>
+            <div class="login-type">
+                <button class="type-btn active" data-type="branch">支部委员</button>
+                <button class="type-btn" data-type="normal">普通党员</button>
+            </div>
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="用户名" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="密码" required>
+                </div>
+                <button type="submit" class="login-btn">登录</button>
+            </form>
+        </div>
+    </div>
+    <script src="static/js/login.js"></script>
+</body>
+</html> 
